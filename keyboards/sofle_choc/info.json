@@ -1,11 +1,14 @@
 {
-    "manufacturer": "Brian Low",
-    "keyboard_name": "Sofle Choc",
-    "maintainer": "Brian Low <github@brianlow.com>",
+    "manufacturer": "Jonny Fox",
+    "keyboard_name": "Sofle Choc - Sweet",
+    "maintainer": "Jonny Fox <github@jfox.com>",
     "build": {
         "lto": true
     },
     "diode_direction": "COL2ROW",
+    "qmk": {
+        "tap_keycode_delay": 10
+    },
     "encoder": {
         "enabled": true,
         "rotary": [
@@ -14,10 +17,11 @@
     },
     "features": {
         "bootmagic": true,
-        "oled": true,
-        "rgb_matrix": true,
         "extrakey": true,
-        "mousekey": true
+        "mousekey": true,
+        "nkro": true,
+        "encoder": true,
+        "oled": true
     },
     "development_board": "promicro",
     "rgb_matrix": {
