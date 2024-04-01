@@ -102,7 +102,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
  * | Tab  | CapW | CapP | CpyW | CpyP | Caps |-------.    ,-------| PagD | Left | Down | Right|      |      |
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
- * |Shift | Undo |  Cut | Copy | Paste|      |-------|    |-------|      | LStr |      | LEnd |  \   | Shift|
+ * |Shift | Undo |  Cut | Copy | Paste|  Ins |-------|    |-------|      | LStr |      | LEnd |  \   | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
  *            | LCTR | LAlt | LGUI |LOWER | /Space  /       \Enter \  |RAISE | RGUI | RAlt | RCTR |
  *            |      |      |      |      |/       /         \      \ |      |      |      |      |
