@@ -96,11 +96,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 /* RAISE
  * ,----------------------------------------.                     ,-----------------------------------------.
- * |      |      |      |      |      |      |                    |      |      |      |      |      |  =   |
+ * |  Esc |  F1  |  F2  |  F3  |  F4  |  F5  |                    |  F6  |  F7  |  F8  |  F9  |  F10 |  =   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Esc  | Ins  | Pscr | Menu |      |      |                    | PagU | PWrd |  Up  | NWrd | DLine| Del  |
+ * |      | Ins  | Pscr | Menu |      |      |                    | PagU | PWrd |  Up  | NWrd |  F11 | Del  |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | Tab  | CapW | CapP | CpyW | CpyP | Caps |-------.    ,-------| PagD | Left | Down | Right|      |      |
+ * | Tab  | CapW | CapP | CpyW | CpyP | Caps |-------.    ,-------| PagD | Left | Down | Right|      | DLine|
  * |------+------+------+------+------+------|  MUTE |    |       |------+------+------+------+------+------|
  * |Shift | Undo |  Cut | Copy | Paste|  Ins |-------|    |-------|      | LStr |      | LEnd |  \   | Shift|
  * `-----------------------------------------/       /     \      \-----------------------------------------'
@@ -109,8 +109,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *            `----------------------------------'           '------''---------------------------'
  */
 [_RAISE] = LAYOUT(
-     KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  KC_EQL,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PGUP, KC_PRVWD,  KC_UP,KC_NXTWD, XXXXXXX,  KC_DEL,
+     KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                     KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,  KC_EQL,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PGUP, KC_PRVWD,  KC_UP,KC_NXTWD,  KC_F11,  KC_DEL,
     _______, KC_CAPW, KC_CAPP, KC_CPYW, KC_CPYP, KC_CAPS,                   KC_PGDN,  KC_LEFT,KC_DOWN, KC_RGHT, XXXXXXX,C(KC_BSPC),
     _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V),  KC_INS, _______, XXXXXXX, XXXXXXX, KC_LSTRT,XXXXXXX, KC_LEND, KC_BSLS, _______,
                       _______, _______, _______,  KC_LWR, _______, _______, KC_RAIS, _______, _______, _______
@@ -182,10 +182,10 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     if (keycode == C(KC_X) || keycode == C(KC_C) || keycode == C(KC_V) ||  keycode == KC_LBRC || keycode == KC_RBRC) {
                       set_keycode_rgb(index, (HSV){HSV_YELLOW}); continue;
                     }
-                    if (keycode == KC_F5 || keycode == KC_F11 || keycode == KC_LCBR || keycode == KC_RCBR) {
+                    if (keycode == KC_F11 || keycode == KC_LCBR || keycode == KC_RCBR) {
                       set_keycode_rgb(index, (HSV){HSV_ORANGE}); continue;
                     }
-                    if (keycode == KC_F8) {
+                    if (keycode == KC_F5 || keycode == KC_F8) {
                       set_keycode_rgb(index, (HSV){HSV_GREEN}); continue;
                     }
                     if (keycode == KC_CAPW || keycode == KC_CAPP) {
@@ -392,26 +392,25 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
         }
 		} else if (index == 1) {
 			switch (get_highest_layer(layer_state)) {
-				case _QWERTY:
-					if (clockwise) {
-						tap_code(KC_PGUP);
-					} else {
-						tap_code(KC_PGDN);
-					}
-				break;
 			case _RAISE:
-			case _LOWER:
-					if (clockwise) {
+                    if (clockwise) {
 						tap_code(KC_DOWN);
 					} else {
 						tap_code(KC_UP);
 					}
 				break;
+			case _LOWER:
+					if (clockwise) {
+						tap_code(KC_PGDN);
+					} else {
+						tap_code(KC_PGUP);
+					}
+				break;
 			default:
 					if (clockwise) {
-						tap_code(KC_WH_D);
-					} else {
 						tap_code(KC_WH_U);
+					} else {
+						tap_code(KC_WH_D);
 					}
 				break;
 		}
