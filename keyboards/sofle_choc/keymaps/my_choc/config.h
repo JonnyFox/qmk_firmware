@@ -30,11 +30,24 @@
 #	define SPLIT_TRANSPORT_MIRROR             // If LED_MATRIX_KEYPRESSES or LED_MATRIX_KEYRELEASES is enabled, you also will want to enable SPLIT_TRANSPORT_MIRROR
 
 
+#define SPLIT_POINTING_ENABLE
+#define POINTING_DEVICE_RIGHT
+#define POINTING_DEVICE_ROTATION_90
+#define POINTING_DEVICE_GESTURES_SCROLL_ENABLE
+#define CIRQUE_PINNACLE_DIAMETER_MM 40
+#define CIRQUE_PINNACLE_TAP_ENABLE 1
+#define CIRQUE_PINNACLE_CURVED_OVERLAY 1
+#define CIRQUE_PINNACLE_SECONDARY_TAP_ENABLE 1
+// #define CIRQUE_PINNACLE_POSITION_MODE CIRQUE_PINNACLE_RELATIVE_MODE
+// #define POINTING_DEVICE_GESTURES_CURSOR_GLIDE_ENABLE
+
+#define MASTER_RIGHT
+
 #ifdef RGBLIGHT_ENABLE
     #undef RGBLIGHT_LED_COUNT
 
 	//#	define RGBLIGHT_EFFECT_BREATHING
-	#	define RGBLIGHT_EFFECT_RAINBOW_MOOD
+	//# define RGBLIGHT_EFFECT_RAINBOW_MOOD
 	//#	define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 	//#	define RGBLIGHT_EFFECT_SNAKE
 	//#	define RGBLIGHT_EFFECT_KNIGHT
@@ -63,7 +76,7 @@
     #   define RGB_DISABLE_WHEN_USB_SUSPENDED true
     // #   define RGB_MATRIX_KEYRELEASES // reacts to keyreleases (instead of keypresses)
     #   define RGB_MATRIX_SLEEP // turn off effects when suspended
-    #   define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+    // #   define RGB_MATRIX_FRAMEBUFFER_EFFECTS
     #   define RGB_MATRIX_LED_PROCESS_LIMIT (RGB_MATRIX_LED_COUNT + 4) / 5 // limits the number of LEDs to process in an animation per task run (increases keyboard responsiveness)
     #   define RGB_MATRIX_LED_FLUSH_LIMIT 16 // limits in milliseconds how frequently an animation will update the LEDs. 16 (16ms) is equivalent to limiting to 60fps (increases keyboard responsiveness)
     #   define RGB_MATRIX_MAXIMUM_BRIGHTNESS 100 // limits maximum brightness of LEDs to 150 out of 255. Higher may cause the controller to crash.
@@ -93,15 +106,15 @@
     #   undef ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
     #   undef ENABLE_RGB_MATRIX_TYPING_HEATMAP
     #   undef ENABLE_RGB_MATRIX_DIGITAL_RAIN
-    // #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE
-    // #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
-    // #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
-    // #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+    #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE
+    #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+    #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_WIDE
+    #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
     #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_CROSS
     #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTICROSS
     #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_NEXUS
     #   undef ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTINEXUS
-    // #   undef ENABLE_RGB_MATRIX_SPLASH
+    #   undef ENABLE_RGB_MATRIX_SPLASH
     #   undef ENABLE_RGB_MATRIX_MULTISPLASH
     #   undef ENABLE_RGB_MATRIX_SOLID_SPLASH
     #   undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH
